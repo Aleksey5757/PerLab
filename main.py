@@ -19,13 +19,15 @@ random.shuffle(koloda)
 
 players = [koloda[i:i+N] for i in range(0, len(koloda), N)]
 while True:
-   player_num = int(input('get-cards C (1 до {}): '.format(C)))
+   player_num_str = input('Выбрать игрока (1 до {}): '.format(C))
    try:
+       player_num = int(player_num_str)
        if player_num == 0:
            print('0 игрока нет')
            break
        elif player_num < 1 or player_num > C:
            print('Нет такого игрока')
+           break
        else:
            print('Player {}: '.format(player_num), end="")
            for card in players[player_num-1]:
